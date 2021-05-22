@@ -9,7 +9,7 @@ Different ways to get text keywords
 [\\p{Ll}\\p{Lu}\\p{Lt}\\p{Lo}\\p{Nd}]+
 ```
 
-* break using regex flag w and meta bw
+* break using regex flags sw and meta bw
 
 ```
 (?sw)(.+?)\\b\r\\w+
@@ -21,8 +21,26 @@ Different ways to get text keywords
 (\\S+)
 ```
 
-* break using regex flag w and meta b
+* break using regex flag sw and meta b
 
 ```
 (?sw)(.+?)\\b
+```
+
+* break using regex flag s and meta b
+
+```
+(?s)(.+?)\\b
+```
+
+* break using regex flag w
+
+```
+(\\w+)
+```
+
+* break using keyword index
+
+```
+GET TEXT KEYWORDS // or DISTINCT VALUES with keyword index
 ```
