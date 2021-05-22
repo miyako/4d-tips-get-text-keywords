@@ -22,12 +22,6 @@ End while
   //["Your","balance","is","1","234","56","I","think"]
 ```
 
-* break using regex flags sw and meta bw
-
-```
-(?sw)(.+?)\\b\r\\w+
-```
-
 * `(\\S+)`
 
 ```4d
