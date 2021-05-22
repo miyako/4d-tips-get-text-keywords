@@ -14,3 +14,15 @@ Different ways to get text keywords
 ```
 (?sw)(.+?)\\b\r\\w+
 ```
+
+* break using regex meta S
+
+```
+(\\S+)
+```
+
+* break using regex flag w and meta b
+
+```
+(?sw)(.+?)\\b
+```
