@@ -28,10 +28,25 @@ End while
 (?sw)(.+?)\\b\r\\w+
 ```
 
-* break using regex meta S
+* `(\\S+)`
 
-```
-(\\S+)
+```4d
+C_LONGINT($i)
+ARRAY LONGINT($pos;0)
+ARRAY LONGINT($len;0)
+
+$i:=1
+
+$text:="Your balance is $1,234.56... I think."
+$words:=New collection
+
+While (Match regex("(\\S+)";$text;$i;$pos;$len))
+	$word:=Substring($text;$pos{1};$len{1})
+	$words.push($word)
+	$i:=$pos{1}+$len{1}
+End while 
+
+  //["Your","balance","is","$1,234.56...","I","think."]
 ```
 
 * `(?sw)(.+?)\b` 
