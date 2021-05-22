@@ -105,12 +105,16 @@ While (Match regex("(\\w+)";$text;$i;$pos;$len))
 End while 
 
   //["Your","balance","is","1","234","56","I","think"]
-
-SET TEXT TO PASTEBOARD(JSON Stringify($words))
 ```
 
 * break using keyword index
 
-```
-GET TEXT KEYWORDS // or DISTINCT VALUES with keyword index
+```4d
+$text:="Your balance is $1,234.56... I think."
+
+GET TEXT KEYWORDS($text;$keywords)
+$words:=New collection
+ARRAY TO COLLECTION($words;$keywords)
+
+  //["Your","balance","is","1","234","56","I","think"]
 ```
