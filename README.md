@@ -34,7 +34,28 @@ End while
 (\\S+)
 ```
 
-* `(?sw)(.+?)\b`
+* `(?sw)(.+?)\b` 
+
+```4d
+C_LONGINT($i)
+ARRAY LONGINT($pos;0)
+ARRAY LONGINT($len;0)
+
+$i:=1
+
+$text:="Your balance is $1,234.56... I think."
+$words:=New collection
+
+While (Match regex("(?sw)(.+?)\\b";$text;$i;$pos;$len))
+	$word:=Substring($text;$pos{1};$len{1})
+	$words.push($word)
+	$i:=$pos{1}+$len{1}
+End while 
+
+  //["Your"," ","balance"," ","is"," ","$","1,234.56",".",".","."," ","I"," ","think","."]
+```
+
+* `(?sw)(.+?)\b` with `\w+`
 
 **note**: (?w) lets \b match at [UAX#29](https://www.unicode.org/reports/tr29/) text boudaries
 
