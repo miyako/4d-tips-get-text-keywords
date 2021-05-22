@@ -1,8 +1,6 @@
 # 4d-tips-get-text-keywords
 Different ways to get text keywords
 
-[https://www.unicode.org/reports/tr29/](https://www.unicode.org/reports/tr29/)
-
 * break using regex meta p
 
 ```
@@ -23,7 +21,10 @@ Different ways to get text keywords
 
 * break using regex flag sw and meta b
 
+**note**: (?w) lets \b match at [UAX#29](https://www.unicode.org/reports/tr29/) text boudaries
+
 ```
+
 (?sw)(.+?)\\b
 ```
 
