@@ -118,9 +118,9 @@ End if
 SET TEXT TO PASTEBOARD(JSON Stringify($words))
 ```
 
-### Use Unicode keywords analysis
+### Use Unicode definition of keywords 
 
-#### `(\\w+)`
+* `(\\w+)`
 
 ```4d
 C_LONGINT($i)
@@ -141,7 +141,7 @@ End while
   //["Your","balance","is","1","234","56","I","think"]
 ```
 
-#### break using keyword index
+* break using keyword index
 
 ```4d
 $text:="Your balance is $1,234.56... I think."
