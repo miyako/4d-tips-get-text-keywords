@@ -97,7 +97,7 @@ End while
 
 * `(?s)(.+?)\b`
 
-```
+```4d
 C_LONGINT($i)
 ARRAY LONGINT($pos;0)
 ARRAY LONGINT($len;0)
