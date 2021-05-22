@@ -1,10 +1,25 @@
 # 4d-tips-get-text-keywords
 Different ways to get text keywords
 
-* break using regex meta p
+* `[\p{Ll}\p{Lu}\p{Lt}\p{Lo}\p{Nd}]+`
 
-```
-[\\p{Ll}\\p{Lu}\\p{Lt}\\p{Lo}\\p{Nd}]+
+```4d
+C_LONGINT($i)
+ARRAY LONGINT($pos;0)
+ARRAY LONGINT($len;0)
+
+$i:=1
+
+$text:="Your balance is $1,234.56... I think."
+$words:=New collection
+
+While (Match regex("([\\p{Ll}\\p{Lu}\\p{Lt}\\p{Lo}\\p{Nd}]+)";$text;$i;$pos;$len))
+	$word:=Substring($text;$pos{1};$len{1})
+	$words.push($word)
+	$i:=$pos{1}+$len{1}
+End while 
+
+  //["Your","balance","is","1","234","56","I","think"]
 ```
 
 * break using regex flags sw and meta bw
