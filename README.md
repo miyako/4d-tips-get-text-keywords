@@ -1,27 +1,6 @@
 # 4d-tips-get-text-keywords
 Different ways to get text keywords
 
-* `[\p{Ll}\p{Lu}\p{Lt}\p{Lo}\p{Nd}]+`
-
-```4d
-C_LONGINT($i)
-ARRAY LONGINT($pos;0)
-ARRAY LONGINT($len;0)
-
-$i:=1
-
-$text:="Your balance is $1,234.56... I think."
-$words:=New collection
-
-While (Match regex("([\\p{Ll}\\p{Lu}\\p{Lt}\\p{Lo}\\p{Nd}]+)";$text;$i;$pos;$len))
-	$word:=Substring($text;$pos{1};$len{1})
-	$words.push($word)
-	$i:=$pos{1}+$len{1}
-End while 
-
-  //["Your","balance","is","1","234","56","I","think"]
-```
-
 ### Use Unicode definition of spaces
 
 * `(\\S+)`
@@ -74,6 +53,16 @@ End while
 
 ### Use Unicode definition of keywords 
 
+* break using keyword index
+
+```4d
+$text:="Your balance is $1,234.56... I think."
+
+GET TEXT KEYWORDS($text;$words)
+
+  //["Your","balance","is","1","234","56","I","think"]
+```
+
 * `(\\w+)`
 
 ```4d
@@ -95,12 +84,23 @@ End while
   //["Your","balance","is","1","234","56","I","think"]
 ```
 
-* break using keyword index
+* `[\p{Ll}\p{Lu}\p{Lt}\p{Lo}\p{Nd}]+`
 
 ```4d
-$text:="Your balance is $1,234.56... I think."
+C_LONGINT($i)
+ARRAY LONGINT($pos;0)
+ARRAY LONGINT($len;0)
 
-GET TEXT KEYWORDS($text;$words)
+$i:=1
+
+$text:="Your balance is $1,234.56... I think."
+$words:=New collection
+
+While (Match regex("([\\p{Ll}\\p{Lu}\\p{Lt}\\p{Lo}\\p{Nd}]+)";$text;$i;$pos;$len))
+	$word:=Substring($text;$pos{1};$len{1})
+	$words.push($word)
+	$i:=$pos{1}+$len{1}
+End while 
 
   //["Your","balance","is","1","234","56","I","think"]
 ```
