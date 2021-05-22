@@ -23,7 +23,7 @@ Different ways to get text keywords
 
 **note**: (?w) lets \b match at [UAX#29](https://www.unicode.org/reports/tr29/) text boudaries
 
-```
+```4d
 C_LONGINT($i)
 ARRAY LONGINT($pos;0)
 ARRAY LONGINT($len;0)
