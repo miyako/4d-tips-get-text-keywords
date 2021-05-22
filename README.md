@@ -22,6 +22,8 @@ End while
   //["Your","balance","is","1","234","56","I","think"]
 ```
 
+### Use Unicode definition of spaces
+
 * `(\\S+)`
 
 ```4d
