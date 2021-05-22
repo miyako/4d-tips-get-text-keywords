@@ -112,9 +112,7 @@ End while
 ```4d
 $text:="Your balance is $1,234.56... I think."
 
-GET TEXT KEYWORDS($text;$keywords)
-$words:=New collection
-ARRAY TO COLLECTION($words;$keywords)
+GET TEXT KEYWORDS($text;$words)
 
   //["Your","balance","is","1","234","56","I","think"]
 ```
