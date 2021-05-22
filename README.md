@@ -19,7 +19,7 @@ Different ways to get text keywords
 (\\S+)
 ```
 
-* `(?sw)(.+?)\\b`
+* `(?sw)(.+?)\b`
 
 **note**: (?w) lets \b match at [UAX#29](https://www.unicode.org/reports/tr29/) text boudaries
 
